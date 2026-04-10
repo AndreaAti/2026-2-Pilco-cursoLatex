@@ -1,7 +1,30 @@
-\documentclass{article}
+\documentclass[1pt]{book}
+\usepackage{ifluatex}
+
+\ifluatex
+\usepackage{fontspec}
+\setmainfont{CMU Serif}
+%\setmainfont{Fira Sans Compressed}
+%\setmainfont{DejaVue Sans}
+\else
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{lmodern}
+%\usepackage{mathptmx} %times
+%\renewcommand{\familydefault}{\rmdefault}
+\fi
 \usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage [dvipsnames]{xcolor}
+\definecolor{micolor}{rgb}{1,1,0}
+\usepackage{framed}
+%\usepackage [colorlinks=true, allcolors=blue]{hyperref}
+
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, allcolors=blue}
+
+
+%\setlength{\parskip}{0em}
 %\usepackage[margin=5cm]{geometry}
 \title{Mi primer documento LaTeX}
 \author{Andrea Pilco}
@@ -9,10 +32,12 @@
 \begin{document}
 	\maketitle
 	
+	\tableofcontents
+	
 	%\chapter{Mi primer libro}
 	
-	
-	\section{Introducción}
+	\chapter{Mi primer Libro}
+	\section[Introducción]{Introducción con título muy largo para ver que sucede al usar ese tipo de título }
 	Hola, este es mi primer documento LaTeX. 
 	Este es un \textbf{ejemplo} \textit{ básico \emph{texto} algo más} de un \textsl{documento}.  
 	
@@ -25,4 +50,57 @@
 	Cras et euismod ligula. Pellentesque luctus, ex in laoreet scelerisque, massa enim molestie libero, in accumsan ligula ligula at risus. Nam rhoncus dignissim diam, in eleifend odio congue ut. Aliquam eget ipsum quis magna auctor pharetra sit amet in elit. Ut vel tellus sit amet nisi rutrum elementum eu ut enim. Donec vulputate et orci sed ultrices. Etiam ut volutpat magna. Nam luctus posuere feugiat. Aliquam ultrices mi id massa ultricies tempus. Cras convallis tempus convallis. Aenean ullamcorper sem sit amet pretium feugiat. In gravida ex eu lacus convallis vestibulum. Cras id blandit elit. Cras non finibus tellus.
 	
 	Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam. Interdum et malesuada fames ac ante ipsum primis in faucibus. In hac habitasse platea dictumst. Quisque eu porta sem. Nam suscipit tortor sed hendrerit pretium. Quisque justo massa, cursus at feugiat eget, luctus ut tortor. Phasellus ac porta justo, non finibus lectus. Sed ac tincidunt dui. Etiam commodo augue vel tempor fringilla. Sed vestibulum mi placerat nisl malesuada, vitae laoreet lectus ultricies.
+	
+	%\setlength{\parindent}{3ex}
+	
+	
+	\noindent Estoy 
+	escribiendo 
+	
+	Texto
+\section {Uso de fuentes}	
+	\input{fuentes.tex}
+	
+\section {Cajas de texto}
+\subsection {Rotación}
+\label{rotacion}
+Texto antes \rotatebox[origin=r]{-60}{Texto rotado} texto después. 
+
+{\scriptsize
+Texto antes \rotatebox{45}{text}{\raisebox{-1ex}{desplazado}} texto después}
+
+\subsection{Ancho fijo}
+
+\makebox[5cm][s]{Texto estirado}
+\makebox[5cm][c]{Texto centrado}
+\makebox[5cm][r]{Texto a la derecha}
+
+\subsection{Cajas de color}
+\colorbox{micolor}{Texto con fondo amarillo}
+
+\subsection{Texto enmarcado}
+\fbox{\colorbox{yellow}{Texto enmarcado}}
+\rotatebox{45}{\colorbox{lightgray}{\makebox[3cm][c]{Texto rotado y con fondo}}}
+
+\subsection{Enmarcar texto}
+\subsubsection{Con Marco}
+\begin{framed}
+Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam. Interdum et malesuada fames ac ante ipsum primis in faucibus. In hac habitasse platea dictumst. Quisque eu porta sem. Nam suscipit tortor sed hendrerit pretium. Quisque justo massa, cursus at feugiat eget, luctus ut tortor. Phasellus ac porta justo, non finibus lectus. Sed ac tincidunt dui. Etiam commodo augue vel tempor fringilla. Sed vestibulum mi placerat nisl malesuada, vitae laoreet lectus ultricies.
+\end{framed}
+
+\subsubsection{Con Color}
+
+\definecolor{shadecolor}{rgb}{1,0.9,0.9}
+
+\begin{shaded}
+	\begin{framed}
+Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam. Interdum et malesuada fames ac ante ipsum primis in faucibus. In hac habitasse platea dictumst. Quisque eu porta sem.
+
+\end{framed}
+\end{shaded}
+
+Tambiénse puede combinar con otros tipos de cajas como las de rotación (ver sección. \ref{rotacion}) Pág. \pageref{rotacion}
+
+
+
 \end{document}
