@@ -4,20 +4,34 @@
 \ifluatex
 \usepackage{fontspec}
 \setmainfont{CMU Serif}
+
+
 %\setmainfont{Fira Sans Compressed}
 %\setmainfont{DejaVue Sans}
 \else
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
+\usepackage{siunitx}
+\usepackage{array}
+\usepackage{graphicx} % en el preámbulo
+\usepackage{pdflscape}
 %\usepackage{mathptmx} %times
 \renewcommand{\familydefault}{\rmdefault}
 \fi
-\usepackage[spanish]{babel}
+\usepackage[spanish, es-tabla]{babel}
 \usepackage{graphicx}
 \usepackage [dvipsnames]{xcolor}
 \definecolor{micolor}{rgb}{1,1,0}
 \usepackage{framed}
+\usepackage{enumitem}
+\usepackage{multirow}
+\usepackage{colortbl}
+\usepackage[dvipsnames,table]{xcolor}
+\usepackage{adjustbox}
+\usepackage{longtable}
+\usepackage{booktabs}
+
 %\usepackage [colorlinks=true, allcolors=blue]{hyperref}
 
 \usepackage{hyperref}
@@ -34,6 +48,10 @@
 	\maketitle
 	
 	\tableofcontents
+	
+	\listoffigures
+	
+	\listoftables
 	
 	%\chapter{Mi primer libro}
 	
@@ -103,6 +121,287 @@ Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod mass
 Tambiénse puede combinar con otros tipos de cajas como las de rotación (ver sección. \ref{rotacion}) Pág. \pageref{rotacion}.
 
 Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam. Interdum et malesuada fames ac ante ipsum primis in faucibu \emph{Mus musculus}. In hac habitasse platea dictumst. Quisque eu porta sem. Nam suscipit tortor sed hendrerit pretium. Quisque justo massa, cursus at feugiat eget, luctus ut tortor. Phasellus ac porta justo, non finibus lectus. Sed ac tincidunt dui. Etiam commodo augue vel tempor fringilla 5\%. Sed vestibulum mi placerat nisl malesuada, vitae laoreet lectus ultricies \mm.
+
+\section {Listas}
+Esto es un ejemplo: 
+
+\begin{enumerate}
+	\item Primer elemento
+	
+		\begin{enumerate}
+			\item Primer elemento
+			\item Segundo elemento
+			\item Tercer elemento
+		\end{enumerate}
+	\item Segundo elemento
+	\item Tercer elemento
+	
+\end{enumerate}
+
+\begin{itemize}
+	\item Elemento con viñeta
+			\begin{enumerate}
+				\item Primer elemento
+				\item Segundo elemento
+				\item Tercer elemento
+			\end{enumerate}
+	\item Otro elemento
+	\item Un elemento más
+\end{itemize}
+\noindent 
+\begin{description}
+	\item[Término 1] Descripción del primer término
+	\item[Término 2] Descripción del segundo término
+\end{description}
+
+\subsection{Personalización de listas}
+
+% Lista más compacta
+\begin{itemize}[noitemsep, topsep=0pt]
+	\item Elemento 1
+	\begin{itemize}[noitemsep, topsep=0pt]
+		\item dentro del primero
+		\item dentro del primero
+	\end{itemize}
+	
+	\item Elemento 2
+	\item Elemento 3
+	\item Elemento 4
+\end{itemize}
+
+% Cambiar el estilo de numeración
+\begin{enumerate}[label=\alph*)]
+	\item Elemento a)
+	\item Elemento b)
+\end{enumerate}
+
+% Lista de descripción con alineación
+\begin{description}[style=multiline,leftmargin=3cm]
+	\item[Término largo] Descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam.
+	\item[Corto] Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam.
+\end{description}
+
+\section{Tablas}
+Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam. Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam.Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam.Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam.Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam.Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam.Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam Tabla \ref{tab:alineación}, pág. \pageref{tab:alineación}.
+
+\begin{table}[htbp]
+	\centering
+	\caption{Ejemplo de tabla con distintos tipos de alineación}
+	\label{tab:alineación}
+	\begin{tabular}{|lcrc|}
+		\hline
+		Izquierda & Centro & Derecha  & Centrado  \\
+		\hline
+		\hline
+		1 & 2 & 3 & A\\
+		4 & 5 & 6 & B \\
+			4 & 5 & 6 & C \\
+				4 & 5 & 6 & D \\
+					4 & 5 & 6 &E \\
+		\hline
+	\end{tabular}
+	
+\end{table}	
+
+Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam. Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam.Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac.
+
+\begin{table}
+\centering
+\begin{tabular}{|l|c|c|c|}
+	\hline
+	\rowcolor{lightgray}
+	\multicolumn{2}{|c|}{\textbf{Encabezado fusionado}} & \textbf{Col 3} & \textbf{Col 4} \\
+	\hline
+	\multirow{2}{*}{Fila 1-2} & A & B & C \\
+	\cline{2-4}
+	& D & E & F \\
+	\hline
+	\rowcolor{yellow}
+	Fila 3 & \multicolumn{3}{c|}{Celda fusionada horizontalmente} \\
+	\hline
+\end{tabular}
+\caption[Tabla Compleja]{Tabla compleja con fusión de celdas y colores}
+\label{tab:compleja}
+\end{table}
+
+Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam. Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam.Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac.
+
+\definecolor{lightgray}{gray}{0.9}
+
+
+\begin{table}[ht]
+	\centering
+	\rowcolors{2}{yellow}{lightgray} % Comienza desde la primera fila
+	\begin{tabular}{r|rrrrrS[table-format=2.4]}
+		\hline
+		& 1 & 2 & 3 & 4 & 5 \\
+		\hline
+		1 & 2.36 & 1.08 & -0.49 & -0.82 & -0.65 \\
+		2 & -0.68 & -1.13 & -0.42 & -0.72 & 1.51 \\
+		3 & -1.00 & 0.02 & -0.54 & 0.31 & 1.28 \\
+		4 & -0.99 & -0.54 & 0.97 & -1.12 & 0.59 \\
+		5 & -2.35 & -0.29 & -0.53 & 0.30 & -0.30 \\
+		6 & -0.10 & 0.06 & -0.85 & 0.10 & -0.60 \\
+		7 & 1.28 & -0.46 & 1.33 & -0.66 & -1.80 \\
+		8 & 0.80 & 0.46 & 1.37 & 1.73 & 1.93 \\
+		9 & -0.75 & 0.28 & 0.51 & 0.19 & 0.58 \\
+		10 & -1.64 & -0.12 & -1.17 & -0.10 & -0.04 \\
+		\hline
+	\end{tabular}
+\end{table}
+
+Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam. Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam.Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac.
+
+\begin{table}[ht]
+	\begin{center}
+		\begin{tabular}{|p{4cm}|p{6cm}|}
+			\hline
+			\centering Texto centrado & 
+			Este es un texto que se ajusta al ancho de la columna.
+			Puede contener varias líneas y se alinea a la izquierda por defecto. \\
+			\hline
+			\centering Otra fila centrada &
+			Aquí tienes más texto que se ajusta al ancho de la columna 
+			y puede contener varias líneas. \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam. Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam.Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac.
+
+
+\begin{table}[htbp]
+	\centering
+	\caption{Una tabla ajustada al ancho de la página}
+	\label{tab:ajustada}
+	
+	\resizebox{\textwidth}{!}{
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline
+			Columna 1 & Columna 2 & Columna 3 & Columna 4 & Columna 5 & Columna 6 \\
+			\hline
+			Dato 1 & Dato 2 & Dato 3 & Dato 4 & Dato 5 & Dato 6 \\
+			Dato 7 & Dato 8 & Dato 9 & Dato 10 & Dato 11 & Dato 12 \\
+			\hline
+		\end{tabular}
+	}
+\end{table}
+
+Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam. Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam.Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac.
+Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam. Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam.Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac.
+
+\begin{table}
+	\centering
+	\caption{Comparación de métodos}
+	\begin{adjustbox}{max width=\textwidth, center}
+		\begin{tabular}{lcccccc}
+			\toprule
+			Método & Precisión & Recall & F1-Score & Tiempo (s) & Memoria (MB) & Complejidad \\
+			\midrule
+			Método A & 0.95 & 0.92 & 0.93 & 120 & 500 & O(n log n) \\
+			Método B & 0.88 & 0.90 & 0.89 & 80 & 300 & O(n) \\
+			Método C & 0.92 & 0.94 & 0.93 & 150 & 700 & O($n^2$) \\
+			Método D & 0.97 & 0.96 & 0.96 & 200 & 1000 & O($n^3$) \\
+			\bottomrule
+		\end{tabular}
+	\end{adjustbox}
+	\label{tab:comparacion}
+\end{table}
+
+Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam. Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam.Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac.
+Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam. Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam.Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac.
+\begin{landscape}
+	\begin{table}
+		\centering
+		\caption{Tabla grande apaisada}
+		\label{tab:apaisada}
+		\begin{tabular}{l*{6}{c}}
+			\toprule
+			Método & Precisión & Recall & F1-Score & Tiempo (s) & Memoria (MB) & Complejidad \\
+			\midrule
+			Método A & 0.95 & 0.92 & 0.93 & 120 & 500 & O(n log n) \\
+			Método B & 0.88 & 0.90 & 0.89 & 80 & 300 & O(n) \\
+			Método C & 0.92 & 0.94 & 0.93 & 150 & 700 & O($n^2$) \\
+			Método D & 0.97 & 0.96 & 0.96 & 200 & 1000 & O($n^3$) \\
+			Método E & 0.91 & 0.93 & 0.92 & 100 & 450 & O(n log n) \\
+			Método F & 0.89 & 0.91 & 0.90 & 90 & 350 & O(n) \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+\end{landscape}
+Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam. Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam.Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac.
+Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam. Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam.Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac.
+
+\begin{longtable}{ccc}
+	\caption{Título de la tabla}\label{tab:ejemplo} \\
+	
+	\toprule
+	Columna 1 & Columna 2 & Columna 3 \\
+	\midrule
+	\endfirsthead
+	
+	\multicolumn{3}{c}{Continuación de la Tabla \ref{tab:ejemplo}} \\
+	\toprule
+	Columna 1 & Columna 2 & Columna 3 \\
+	\midrule
+	\endhead
+	
+	\midrule
+	\multicolumn{3}{r}{Continúa en la siguiente página} \\
+	\endfoot
+	
+	\bottomrule
+	\endlastfoot
+	
+	Dato 1 & Dato 2 & Dato 3 \\
+	Dato 4 & Dato 5 & Dato 6 \\
+		Dato 1 & Dato 2 & Dato 3 \\
+	Dato 4 & Dato 5 & Dato 6 \\
+		Dato 1 & Dato 2 & Dato 3 \\
+	Dato 4 & Dato 5 & Dato 6 \\
+		Dato 1 & Dato 2 & Dato 3 \\
+	Dato 4 & Dato 5 & Dato 6 \\
+		Dato 1 & Dato 2 & Dato 3 \\
+	Dato 4 & Dato 5 & Dato 6 \\
+		Dato 1 & Dato 2 & Dato 3 \\
+	Dato 4 & Dato 5 & Dato 6 \\
+		Dato 1 & Dato 2 & Dato 3 \\
+	Dato 4 & Dato 5 & Dato 6 \\
+		Dato 1 & Dato 2 & Dato 3 \\
+	Dato 4 & Dato 5 & Dato 6 \\
+		Dato 1 & Dato 2 & Dato 3 \\
+	Dato 4 & Dato 5 & Dato 6 \\
+		Dato 1 & Dato 2 & Dato 3 \\
+	Dato 4 & Dato 5 & Dato 6 \\
+		Dato 1 & Dato 2 & Dato 3 \\
+	Dato 4 & Dato 5 & Dato 6 \\
+		Dato 1 & Dato 2 & Dato 3 \\
+	Dato 4 & Dato 5 & Dato 6 \\
+			Dato 1 & Dato 2 & Dato 3 \\
+	Dato 4 & Dato 5 & Dato 6 \\
+		Dato 1 & Dato 2 & Dato 3 \\
+	Dato 4 & Dato 5 & Dato 6 \\
+		Dato 1 & Dato 2 & Dato 3 \\
+	Dato 4 & Dato 5 & Dato 6 \\
+		Dato 1 & Dato 2 & Dato 3 \\
+	Dato 4 & Dato 5 & Dato 6 \\
+		Dato 1 & Dato 2 & Dato 3 \\
+	Dato 4 & Dato 5 & Dato 6 \\
+\end{longtable}
+	
+	\section{Figuras}
+Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam. Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam.Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac.	
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.8\textwidth]{figuras/paisaje.jpg}
+	\caption[Versión corta]{Descripción detallada de la imagen}
+	\label{fig:mi_imagen}
+\end{figure}
+	
+	
+	
+	
 
 
 
