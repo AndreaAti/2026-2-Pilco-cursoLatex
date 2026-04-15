@@ -35,6 +35,8 @@
 %\usepackage [colorlinks=true, allcolors=blue]{hyperref}
 
 \usepackage{hyperref}
+\usepackage{placeins}
+\usepackage{amsmath}
 \hypersetup{colorlinks=true, allcolors=blue}
 \newcommand{\mm}{\emph{Mus musculus} }
 
@@ -391,18 +393,53 @@ Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellen
 \end{longtable}
 	
 	\section{Figuras}
-Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam. Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam.Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac.	
+Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam. Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam.Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac ver Figura ~\ref{fig:mi_imagen}, página \pageref{fig:mi_imagen}.	
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.8\textwidth]{figuras/paisaje.jpg}
 	\caption[Versión corta]{Descripción detallada de la imagen}
 	\label{fig:mi_imagen}
 \end{figure}
-	
-	
-	
-	
 
+%\newpage
+\FloatBarrier	
+	\section{Figuras}
+Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam. Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam.Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac ver
+
+\chapter {Matemáticas y bibliografía}
+\section {Entornos matemáticos}
+La energía $E = mc^2$ es fundamental en física moderna.
+La integral \(\int_a^b f(x)dx\) representa el área bajo la curva.
+
+La ecuación de onda es:
+\[
+\nabla^2 \psi = \frac{1}{v^2} \frac{\partial^2 \psi}{\partial t^2}
+\]
+La integral \[\\int_a^b f(x)dx\] representa el área bajo la curva.
+
+\subsubsection {Fracciones y Raices}
+\(\frac{a}{b}\), \(\sqrt{x}\), \(\sqrt[n]{x}\).
+\[
+\sum_{i=1}^n \frac{\sqrt{x_i}}{2} \times \alpha
+\]
+
+\begin{equation}
+	\label{eq:onda}
+	\frac{\partial^2 u}{\partial t^2} = c^2 \nabla^2 u
+\end{equation}
+Como se ve en la ecuación \ref{eq:onda}, la velocidad es crítica.
+
+\begin{equation}
+	\label{eq:integral}
+	\int_0^1 \frac{x^2}{\sqrt{1 - x^2}} dx = \frac{\pi}{8}
+\end{equation}
+
+La matriz identidad: \(
+I = \begin{pmatrix}
+	1 & 0 \\
+	0 & 1
+\end{pmatrix}
+\)
 
 
 \end{document}
