@@ -40,9 +40,69 @@
 \usepackage{hyperref}
 \usepackage{placeins}
 \usepackage{amsmath}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\pagestyle {fancy}
+\fancyhead{}
+\fancyfoot{}
+\fancyhead[L]{Nombre del Documento}
+\fancyhead[R]{\leftmark}
+\fancyfoot[C]{\thepage}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+
 \hypersetup{colorlinks=true, allcolors=blue}
 \newcommand{\mm}{\emph{Mus musculus} }
+\usepackage{listings}
+\usepackage{xcolor}  % Necesario para colores
+\usepackage{tcolorbox}
+\lstset{
+	basicstyle=\small\ttfamily,           % Fuente base: pequeña, monoespaciada
+	keywordstyle=\color{blue}\bfseries,   % Palabras clave en azul negrita
+	commentstyle=\color{gray}\itshape,    % Comentarios en gris cursiva
+	stringstyle=\color{red},              % Cadenas de texto en rojo
+	numbers=left,                          % Números de línea a la izquierda
+	numberstyle=\tiny\color{gray},        % Estilo de números de línea
+	stepnumber=1,                          % Numerar cada línea
+	numbersep=8pt,                         % Separación números-código
+	frame=single,                          % Marco simple alrededor
+	framesep=3pt,                          % Separación marco-código
+	backgroundcolor=\color{gray!5},       % Fondo gris muy claro
+	breaklines=true,                       % Partir líneas largas
+	breakatwhitespace=true,                % Partir en espacios
+	showstringspaces=false,                % No marcar espacios en strings
+	tabsize=4,                             % Tamaño de tabulación
+	captionpos=b                           % Título debajo del código
+}
 
+\lstdefinestyle{mipython}{
+	language=Python,
+	basicstyle=\footnotesize\ttfamily,
+	keywordstyle=\color{blue},
+	commentstyle=\color{green!60!black},
+	stringstyle=\color{orange},
+	frame=tb,
+	numbers=left
+}
+
+
+\newenvironment{miResumen}
+{
+	\begin{quote}
+		\bfseries Resumen:\quad
+	}
+	{
+	\end{quote}
+}
+
+\tcbset{
+	miestilo/.style={
+		colback=green!5,
+		colframe=green!50!black,
+		fonttitle=\bfseries,
+		rounded corners,
+		boxrule=0.8pt
+	}
+}
 
 %\setlength{\parskip}{0em}
 %\usepackage[margin=5cm]{geometry}
@@ -454,6 +514,48 @@ Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellen
 
 \citeauthor{Liang2022} en el año \citeyear{Liang2022} Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam. Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam.Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac ver
 
+\chapter {Otras utilidades}
+\section {Paquete Listings}
+\begin{lstlisting}[language=Python,caption={Ejemplo en Python},label={code:python}]
+	def factorial(n):
+	if n <= 1:
+	return 1
+	else:
+	return n * factorial(n - 1)
+\end{lstlisting}
+
+La función \lstinline|print("Hola")| muestra texto en pantalla.
+También funciona con otros delimitadores: \lstinline!x = 5!
+
+
+\section {entornos personalizados}
+\begin{miResumen}
+	Este es el resumen de la sección. \citeauthor{Liang2022} en el año \citeyear{Liang2022} Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam. Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac. Cras a gravida ex, vel rutrum diam.Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa, in finibus tellus pharetra ac ver
+\end{miResumen}
+
+\section {Otros usos de tcolorbox}
+\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=Ejemplo de tcolorbox]
+	Este es un texto de ejemplo dentro de un recuadro de color personalizado.  
+	Puedes ajustar opacidad, bordes y mucho más.
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+	colback=yellow!10,           % Fondo amarillo claro
+	colframe=orange!80!black,    % Borde naranja oscuro
+	title=Advertencia,           % Título
+	fonttitle=\bfseries,         % Título en negrita
+	coltitle=white,              % Color del texto del título
+	rounded corners,             % Esquinas redondeadas
+	boxrule=1.5pt,               % Grosor del borde
+	%shadow={2mm}{-2mm}{0mm}{black!50}  % Sombra
+	]
+	Contenido de la caja con sombra y esquinas redondeadas.
+\end{tcolorbox}
+
+% Luego en el documento:
+\begin{tcolorbox}[miestilo, title=Nota importante]
+	Este recuadro usa el estilo predefinido "miestilo".
+\end{tcolorbox}
 
 \bibliography{referencias}
 
