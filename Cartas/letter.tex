@@ -1,0 +1,47 @@
+\documentclass[a4paper,12pt]{letter}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{eso-pic}    
+
+% Definición de la dirección del remitente
+\address{Calle Falsa 123\\ Ciudad de México, CP 01000}
+
+% Definición de la firma del remitente
+\signature{Juan Pérez}
+
+% Opcionalmente, se puede definir la fecha
+\date{\today}
+
+\begin{document}
+	
+	% Inicio del entorno de la carta
+	\begin{letter}{Lic. María López\\ Departamento de Comunicaciones\\ 
+			Empresa XYZ\\ Calle Real 456\\ Otra Ciudad, CP 02000}
+		
+		% Declaración de apertura
+		\opening{Estimada Lic. López:}
+		
+		Me permito escribirle la presente carta con el propósito de informarle 
+		sobre la nueva estrategia de comunicación que implementaremos en la empresa. 
+		La iniciativa está orientada a mejorar la interacción con nuestros clientes 
+		mediante el uso de medios digitales y herramientas innovadoras.
+		
+		Agradezco de antemano su atención y quedo a su disposición para ampliar 
+		cualquier información adicional que requiera.
+		
+		% Declaración de cierre
+		\closing{Atentamente,}
+		
+		% Inclusión de una posdata
+		\ps{PD: Adjunto el documento con el plan de acción para su revisión.}
+		
+		% Inclusión de documentos adjuntos
+		\encl{Plan de Acción\\ Cronograma de Actividades}
+		
+		% Inclusión de destinatarios en copia
+		\cc{Dr. Carlos Gómez\\ Ing. Marta Díaz}
+		
+	\end{letter}
+	
+\end{document}

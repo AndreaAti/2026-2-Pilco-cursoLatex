@@ -1,0 +1,65 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage[top=4cm,headheight=4cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{graphicx}
+\newsavebox{\mylogo}
+\savebox{\mylogo}{\includegraphics[width=2cm]{../escudo_ugr_portada}}
+
+\newsavebox{\logoderecha}
+\savebox{\logoderecha}{\includegraphics[width=2cm]{../logo_ib}}
+
+
+\lhead{
+	
+	\begin{minipage}[t]{4cm}
+		\vspace{1cm}\hspace{-2cm}\parbox[t]{4cm}{
+			\begin{center}
+				\usebox{\mylogo} \\
+				\tiny{\textbf{Facultad de Ciencias\\Universidad de Granada}}
+			\end{center}
+		}
+	\end{minipage}
+}
+
+ \rhead{
+	\begin{minipage}[t]{4cm}
+		\vspace{1cm}\hspace*{2cm}\parbox[t]{4cm}{
+			\begin{center}
+				\usebox{\logoderecha} \\
+				\tiny{\textbf{\emph{Instituto de Biotecnología}}}
+			\end{center}
+		}
+	\end{minipage}
+}
+
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\begin {document}
+
+\null\vfill
+
+Andrea Pilco, estudiante de doctorado
+
+\begin{description}
+	\item[\textbf{certifica:}] XXX a realziado una estancia en el laboratorio. Este es el resumen de la sección.  en el año Otra descripción. Cras ut nisl nec diam elementum euismod a in dui. Nunc pellentesque euismod massa.
+\end{description}
+
+Granada a \today
+
+\includegraphics[width=4cm]{firma.png}
+
+
+\vspace{-0.7cm}
+
+Andrea Pilco 
+
+
+\vfill
+
+
+\end {document}
+
