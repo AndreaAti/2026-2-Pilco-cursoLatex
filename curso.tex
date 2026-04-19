@@ -55,6 +55,10 @@
 \usepackage{listings}
 \usepackage{xcolor}  % Necesario para colores
 \usepackage{tcolorbox}
+\usepackage{setspace}
+\setcounter{tocdepth}{3}
+\usepackage[nottoc, notlot, notlof]{tocbibind} % Bibliografía en índice, sin LoT/LoF
+\usepackage{balance}
 \lstset{
 	basicstyle=\small\ttfamily,           % Fuente base: pequeña, monoespaciada
 	keywordstyle=\color{blue}\bfseries,   % Palabras clave en azul negrita
@@ -73,6 +77,21 @@
 	tabsize=4,                             % Tamaño de tabulación
 	captionpos=b                           % Título debajo del código
 }
+
+\makeatletter
+\def\@makechapterhead#1{%
+	\vspace*{1\p@}%
+	{\parindent \z@ \raggedright \normalfont
+		\ifnum \c@secnumdepth >\m@ne
+		\par\nobreak
+		\vskip 20\p@
+		\fi
+		\interlinepenalty\@M
+		\Huge \bfseries \thechapter.\space#1\par\nobreak
+		\vskip 40\p@
+	}
+}
+\makeatother
 
 \lstdefinestyle{mipython}{
 	language=Python,
@@ -106,19 +125,167 @@
 %\usepackage[a4,center]{crop}
 %\setlength{\parskip}{0em}
 %\usepackage[margin=5cm]{geometry}
+\newcommand{\titulo}{Mi primer documento Latex}
+\newcommand{\yo}{Andrea Pilco Ati}
+\newcommand{\fecha}{Septiembre 2026}
 \title{Mi primer documento LaTeX}
 \author{Andrea Pilco}
 \date{\today}
 \begin{document}
-	\maketitle
+	%\maketitle
+	\frontmatter
+	\pagestyle{empty}
+\begin{center}
+	\LARGE
+	\titulo
+\end{center}
+
+\vspace{\stretch{1}}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.6\textwidth]{escudo_ugr_portada}
+\end{figure}
+
+\vspace{\stretch{3}}
+
+\begin{center}
+	\large
+	\yo\\[1em]
+	Tesis Doctoral\\[0.5em]
+	\fecha
+\end{center}
+
+
+%-------------------------------------------------------------------------------
+% --- Página de instituciones ----------------------------
+-------------------------------------------------------------
+\cleardoublepage
+
+
+\begin{minipage}[t]{.23\textwidth}
+	\centering
+	\includegraphics[width=.8\textwidth]{logo_ib}\\
+	Instituto de Biotecnología
+\end{minipage}
+\hfill
+\begin{minipage}[t]{.23\textwidth}
+	\centering
+	\includegraphics[width=.7\textwidth]{logo_ciencias}\\
+	Facultad de Ciencias
+\end{minipage}
+\hfill
+\begin{minipage}[t]{.23\textwidth}
+	\centering
+	\includegraphics[width=.83\textwidth]{escudo_ugr_portada}\\
+	Universidad de Granada
+\end{minipage}
+
+\vspace{2cm}
+
+\begin{minipage}[b]{.23\textwidth}
+	\centering
+	\includegraphics[width=.7\textwidth]{biologia}\\
+	Estudios de Biología
+\end{minipage}
+\hfill
+\begin{minipage}[b]{.23\textwidth}
+	\centering
+	\includegraphics[width=.7\textwidth]{genetica}\\
+	Departamento de Genética
+\end{minipage}
+\hfill
+\begin{minipage}[b]{.23\textwidth}
+	\centering
+	\includegraphics[width=.7\textwidth]{cibm}\\
+	Centro de Investigación Biomédica
+\end{minipage}
+
+\vfill
+
+\begin{center}
+	\LARGE
+	\titulo
+\end{center}
+
+\vfill
+
+\begin{minipage}[t]{.4\textwidth}
+	Dirigida por los Doctores:\\[3em]
+	Dr. Nombre Director/a 1\\[3em]
+	Dr. Nombre Director/a 2
+\end{minipage}
+\hfill
+\begin{minipage}[t]{.5\textwidth}
+	Memoria de Tesis Doctoral presentada por Nombre Apellidos para optar al grado de Doctor/a por la Universidad de Granada.\\[5em]
+	\centering
+	\yo\underline{Nombre Apellidos}\\[0.5em]
+	\fecha
+\end{minipage}
+
+
+%-------------------------------------------------------------------------------
+% --- Página de financiación ---
+\cleardoublepage
+\thispagestyle{empty}
+
+\null\vspace{\stretch{5}}
+El presente trabajo se ha desarrollado en los laboratorios del Departamento de Genética y del Instituto de Biotecnología en la Facultad de Ciencias y en el Centro de Investigación Biomédica (CIBM) de la Universidad de Granada. 
+
+% TODO: Completar con información de financiación
+La investigación realizada ha sido financiada por...
+\vspace{\stretch{1}}
+
+%-------------------------------------------------------------------------------
+
+% --- Agradecimientos ---
+\cleardoublepage
+\section*{Agradecimientos}
+\input{agradecimientos.tex}
+
+%-------------------------------------------------------------------------------
+
+% --- Dedicatoria ---
+\cleardoublepage
+\null\vspace{\stretch{2}}
+\begin{flushright}
+	Dedicado a...
+\end{flushright}
+\vspace{\stretch{1}}
+
+%-------------------------------------------------------------------------------
+% --- Cita inspiradora (opcional) ---
+\cleardoublepage
+\null\vspace{\stretch{2}}
+\hfill
+\begin{minipage}{8cm}
+	\textsl{Siembra un pensamiento y cosecharás un acto,}\\
+	\textsl{siembra un acto y cosecharás un hábito,}\\
+	\textsl{siembra un hábito y cosecharás un carácter,}\\
+	\textsl{siembra un carácter y cosecharás un destino.}
+	\begin{flushright}
+		--- Charles Reade
+	\end{flushright}
+\end{minipage}
+\vspace{\stretch{1}}
+
+%-------------------------------------------------------------------------------
+
+\cleardoublepage
+\pagestyle{empty}
 	
 	\tableofcontents
-	
 	\listoffigures
-	
 	\listoftables
+
+\section*{Abreviaturas}
+\input{abreviaturas.tex}
 	
 	%\chapter{Mi primer libro}
+% Configuración de encabezados
+
+\pagestyle{fancy}
+	
+\mainmatter
 	
 	\chapter{Mi primer Libro}
 	\section[Introducción]{Introducción con título muy largo para ver que sucede al usar ese tipo de título }
@@ -563,10 +730,16 @@ Texto escrito por mi.
 
 Segundo texto escrito por mi. Texto escrito por el supervisor
 
+\balance
+\begin{doublespace}
+	\begin{footnotesize}
+		\begin{twocolumn}
+			\bibliography{referencias}
+		\end{twocolumn}
+	\end{footnotesize}
+\end{doublespace}
 
 
-
-\bibliography{referencias}
 
 
 \end{document}
