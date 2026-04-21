@@ -59,6 +59,7 @@
 \setcounter{tocdepth}{3}
 \usepackage[nottoc, notlot, notlof]{tocbibind} % Bibliografía en índice, sin LoT/LoF
 \usepackage{balance}
+\usepackage{emptypage}
 \lstset{
 	basicstyle=\small\ttfamily,           % Fuente base: pequeña, monoespaciada
 	keywordstyle=\color{blue}\bfseries,   % Palabras clave en azul negrita
@@ -240,6 +241,7 @@ La investigación realizada ha sido financiada por...
 % --- Agradecimientos ---
 \cleardoublepage
 \section*{Agradecimientos}
+\addcontentsline{toc}{section}{Agradecimientos}
 \input{agradecimientos.tex}
 
 %-------------------------------------------------------------------------------

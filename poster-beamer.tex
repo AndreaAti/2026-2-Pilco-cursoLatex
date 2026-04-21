@@ -1,0 +1,61 @@
+\documentclass{beamer}
+
+\usepackage[orientation=portrait, size=a0, scale=1.4]{beamerposter}
+\usetheme{default} % Mejor para posters
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx} % Para imágenes
+\usepackage{framed}   % Para cuadros
+\usepackage{ragged2e} % Para mejor alineación
+
+% Definición del comando \texto
+\newcommand{\texto}[1]{\justifying #1}
+
+\title{Título del Póster: Tema Principal de la Investigación}
+\author{Autor1 A, Autor2 B, Autor3 C, Autor4 D}
+\institute{Institute}
+\date{Fecha}
+
+\begin{document}
+	
+	\begin{frame}[t]
+		
+		\begin{columns}[t]
+			
+			% -------- Columna 1 --------
+			\begin{column}{0.48\textwidth}
+				
+				\includegraphics[width=\textwidth]{fotos/Fig1poster.png}
+				
+				\begin{framed}
+					Fig. 1. Descripción detallada de la figura. Incluir información relevante
+					sobre lo que muestra la imagen, las condiciones experimentales y la escala.
+				\end{framed}
+				
+			\end{column}
+			
+			% -------- Columna 2 --------
+			\begin{column}{0.48\textwidth}
+				
+				\includegraphics[width=\textwidth]{fotos/Fig1poster.png}
+				
+				\begin{framed}
+					Fig. 2. Descripción detallada de la figura.
+				\end{framed}
+				
+			\end{column}
+			
+		\end{columns}
+		
+		\vspace{1cm}
+		
+		\texto{
+			Praesent vitae porttitor tortor. Fusce mollis, lacus ut ullamcorper molestie,
+			justo ligula congue velit, ut maximus magna lorem vitae arcu. Sed sodales justo
+			nec faucibus ultricies. Nam dictum enim non venenatis egestas.
+		}
+		
+	\end{frame}
+	
+\end{document}
